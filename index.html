@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sunrise Hospital Patient Check-In</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <img src="logo.png" alt="Sunrise Hospital Logo" class="logo">
+        <h1>Sunrise Hospital Patient Check-In</h1>
+        <p>Please fill in the following details to check in. If you have any questions or require assistance while filling out this section, please don't hesitate to ask our staff for help.
+        </p>
+    </header>
+
+    <form id="checkin-form">
+        <!-- Patient Identification Section -->
+        <span style="color: #c00101">* Indicates required question</span>
+        <section>
+            <h2>Patient Identification<br>
+            <span class="note">Information to accurately identify you in our system</span>
+            </h2>
+
+            <label for="patient-id">Patient ID:<br>
+                <span class="note">For Existing customers. New patients can leave this field blank.</span>
+            </label>
+            <input type="text" id="patient-id" name="patient-id">
+
+            <label for="first-name"><span class="requiredField">*</span> First Name:</label>
+            <input type="text" id="first-name" name="first-name" required>
+
+            <label for="last-name"><span class="requiredField">*</span> Last Name:</label>
+            <input type="text" id="last-name" name="last-name" required>
+
+            <label for="dob"><span class="requiredField">*</span> Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label for="email"><span class="requiredField">*</span> Email:</label>
+            <input type="email" id="email" name="email" required>
+        </section>
+
+        <!-- Medical History Section -->
+        <section>
+            <h2>Medical History<br>
+                <span class="note">Your medical history to help us understand your health needs and offer you the best possible care. Providing accurate medical history is crucial for your safety and helps us tailor our care to your specific needs.</span></h2>
+            <label for="allergies">Allergies:</label>
+            <textarea id="allergies" name="allergies" placeholder="List any allergies you have."></textarea>
+
+            <label for="medications">Current Medications:</label>
+            <textarea id="medications" name="medications" placeholder="List all medications you are currently taking."></textarea>
+
+            <label for="conditions">Preexisting Conditions and Surgeries:</label>
+            <textarea id="conditions" name="conditions" placeholder="Mention any chronic health conditions or past surgeries."></textarea>
+        </section>
+
+        <!-- Insurance Information Section -->
+        <section>
+            <h2>Medical Insurance Information<br>
+                <span class="note">Please provide your insurance details to help us process your billing accurately and verify coverage for your visit. This information ensures a smooth check-in and minimizes any delays.</span></h2>
+
+            <label for="insurance-provider"><span class="requiredField">*</span> Insurance Provider:</label>
+            <select id="insurance-provider" name="insurance-provider" required>
+                <option value="">Select Insurance Provider</option>
+                <option value="BCBS">BCBS</option>
+                <option value="HealthPartner">HealthPartner</option>
+                <option value="UCare">UCare</option>
+                <option value="Athena">Athena</option>
+                <option value="Other">Other (please specify)</option>
+            </select>
+
+            <div id="other-insurance-container" style="display: none;">
+                <label for="other-insurance">Please specify:</label>
+                <input type="text" id="other-insurance" name="other-insurance">
+            </div>
+            <label for="policy-number"><span class="requiredField">*</span>Policy Number:</label>
+            <input type="text" id="policy-number" name="policy-number" required>
+
+            <label for="copay">Co-Pay Amount:</label>
+            <input type="number" id="copay" name="copay" step="0.01" min="0">
+        </section>
+
+        <!-- Appointment Details Section -->
+        <section>
+            <h2>Appointment <br>
+                <span class="note">Please provide your appointment information so we can prepare for your visit and ensure timely service.</span></h2>
+            <label for="appointment-date"><span class="requiredField">*</span> Date and Time of Appointment:</label>
+            <input type="datetime-local" id="appointment-date" name="appointment-date" required>
+
+            <label for="department"><span class="requiredField">*</span> Department/Specialist:</label>
+            <select id="department" name="department" required>
+                <option value="">Select Department</option>
+                <option value="cardiology">Cardiology</option>
+                <option value="pediatrics">Pediatrics</option>
+                <option value="orthopedics">Orthopedics</option>
+                <option value="orthopedics">Pediatrics</option>
+                <option value="orthopedics">Physical therapy</option>
+                <option value="orthopedics">Neurology</option>
+                <option value="orthopedics">Psychiatry</option>
+                <option value="general">General Consultation</option>
+                <!-- Add more departments as needed -->
+            </select>
+
+            <label for="reason"><span class="requiredField">*</span> Reason for Visit:</label>
+            <textarea id="reason" name="reason" required placeholder="Briefly describe the primary reason for your visit."></textarea>
+        </section>
+
+        <!-- Emergency Contact Information Section -->
+        <section>
+            <h2>Emergency Contact Information<br>
+                <span class="note">Accurate emergency contact information is crucial for your safety. This person may be contacted in case of an emergency.</span></h2>
+            <label for="emergency-name"><span class="requiredField">*</span> Full Name:</label>
+            <input type="text" id="emergency-name" name="emergency-name" required>
+
+            <label for="relationship"><span class="requiredField">*</span> Relationship to Patient:</label>
+            <select id="relationship" name="relationship" required>
+                <option value="">Select Relationship</option>
+                <option value="spouse">Spouse</option>
+                <option value="parent">Parent</option>
+                <option value="child">Child</option>
+                <option value="sibling">Sibling</option>
+                <option value="grandparent">Grandparent</option>
+                <option value="grandchild">Grandchild</option>
+                <option value="aunt_uncle">Aunt/Uncle</option>
+                <option value="niece_nephew">Niece/Nephew</option>
+                <option value="cousin">Cousin</option>
+                <option value="guardian">Legal Guardian</option>
+                <option value="friend">Friend</option>
+                <option value="partner">Partner/Significant Other</option>
+                <option value="other">Other (please specify)</option>
+            </select>
+
+            <div id="other-relationship-container" style="display:none;">
+                <label for="other-relationship">Please specify:</label>
+                <input type="text" id="other-relationship" name="other-relationship">
+            </div>
+
+            <label for="emergency-phone"><span class="requiredField">*</span> Phone Number:</label>
+            <input type="tel" id="emergency-phone" name="emergency-phone" placeholder="(XXX) XXX-XXXX" required>
+        </section>
+
+        <!-- Submit Button -->
+        <button type="submit">Check In</button>
+    </form>
+
+    <!-- Feedback Section -->
+    <!-- Feedback Section -->
+    <div id="feedback"></div>
+</div>
+
+<!-- JavaScript for Validation and Dynamic Fields -->
+<script src="script.js"></script>
+</body>
+</html>
